@@ -17,17 +17,7 @@ module Edboxra
       raise "couldn't find movies in #{resp.body}" unless match
 
       json = JSON.parse(match[1])
-
-      json.map do |row|
-        movie = Movie.new
-        movie.id = row["ID"]
-        movie.name = row["Name"]
-        movie.release_date = Date.parse(row['Release'])
-        movie.image = row["Img"]
-        movie.genre_ids = row["GenreIDs"]
-        movie.blu_ray = row["FormatID"].eql? "2"
-        movie
-      end
+      json.map{|row| map_movie(row)}
     end
 
     def add_metadata_to(movie)
@@ -54,6 +44,19 @@ module Edboxra
       movie.running_time = json["RunningTime"]
       movie.genre = json["Genre"]
       movie.actors = json["Actors"]
+    end
+
+    private
+
+    def map_movie(json)
+      movie = Movie.new
+      movie.id = json["ID"]
+      movie.name = json["Name"]
+      movie.release_date = Date.parse(json['Release'])
+      movie.image = json["Img"]
+      movie.genre_ids = json["GenreIDs"]
+      movie.blu_ray = json["FormatID"].eql? "2"
+      movie
     end
   end
 end
