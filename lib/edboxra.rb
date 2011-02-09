@@ -1,5 +1,6 @@
 require 'edboxra/version'
 require 'edboxra/api_factory'
 require 'edboxra/api'
+require 'edboxra/movie'
 require 'edboxra/v1/version_1_api'
 require 'edboxra/v2/version_2_api'

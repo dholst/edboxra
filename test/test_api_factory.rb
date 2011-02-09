@@ -1,17 +1,13 @@
-require 'minitest/autorun'
-require 'edboxra'
-require 'fake_box'
+require 'test_helper'
 
-module Edboxra
-  class TestApiFactory < MiniTest::Unit::TestCase
-    def test_gets_version_1_api
-      FakeBox.fakeout_version_1
-      assert_instance_of(Version1Api, ApiFactory.create_api)
-    end
+class TestApiFactory < TestCase
+  def test_gets_version_1_api
+    FakeBox.fakeout_version_1
+    assert_instance_of(Edboxra::Version1Api, Edboxra::ApiFactory.create_api)
+  end
 
-    def test_gets_version_2_api
-      FakeBox.fakeout_version_2
-      assert_instance_of(Version2Api, ApiFactory.create_api)
-    end
+  def test_gets_version_2_api
+    FakeBox.fakeout_version_2
+    assert_instance_of(Edboxra::Version2Api, Edboxra::ApiFactory.create_api)
   end
 end

@@ -3,7 +3,8 @@ module Edboxra
     KEY_REGEX = /rb\.api\.key *= * [',"](.*?)[',"]/
 
     def self.build_from(response)
-      self.new if KEY_REGEX.match(response)
+      match = KEY_REGEX.match(response.body)
+      self.new(match[1], response.headers[:set_cookie]) if match
     end
   end
 end
