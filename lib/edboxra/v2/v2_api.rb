@@ -54,7 +54,13 @@ module Edboxra
       end
 
       def post_headers
-        {'Cookie' => @cookies.map{|k,v| "#{k}=#{v}"}.join("; "), "__K" => @key}
+        {
+          "Cookie" => @cookies.map{|k,v| "#{k}=#{v}"}.join("; "),
+          "__K" => @key,
+          "X-Requested-With" => "XMLHttpRequest",
+          "Content-Type" => "application/x-www-form-urlencoded",
+          "User-Agent" => "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_5; en-US) AppleWebKit/534.10 (KHTML, like Gecko) Chrome/8.0.552.231 Safari/534.10",
+        }
       end
     end
   end

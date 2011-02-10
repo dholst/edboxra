@@ -22,5 +22,6 @@ Gem::Specification.new do |s|
   s.add_dependency "rest-client", "~> 1.6"
   s.add_dependency "json", "~> 1.5"
   s.add_development_dependency "webmock", "~> 1.6"
+  s.add_development_dependency "minitest", "~> 2.0"
 end
 

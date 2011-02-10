@@ -28,15 +28,15 @@ class FakeBox
     end
 
     def expect_get(url, response)
-      WebMock
-        .stub_request(:get, url)
+      WebMock \
+        .stub_request(:get, url) \
         .to_return(:status => 200, :body => response)
     end
 
     def expect_post(url, content, headers, response)
-      WebMock
-        .stub_request(:post, url)
-        .with(:body => content, :headers => headers)
+      WebMock \
+        .stub_request(:post, url) \
+        .with(:body => content, :headers => headers) \
         .to_return(:status => 200, :body => response)
     end
 
@@ -45,8 +45,8 @@ class FakeBox
     def setup(main_page)
       WebMock.reset!
       WebMock.disable_net_connect!
-      WebMock
-        .stub_request(:get, "http://www.redbox.com/")
+      WebMock \
+        .stub_request(:get, "http://www.redbox.com/") \
         .to_return(:status => 200, :body => main_page, :headers => {'Set-Cookie' => 'redboxVersion=foo; expires=Fri, 11-Mar-2011 02:02:51 GMT; path=/; HttpOnly'})
     end
   end
