@@ -3,4 +3,6 @@ require 'autotest/fsevent'
 
 Autotest.add_hook :initialize do |at|
   at.testlib = 'minitest/unit'
+  at.libs = %w[. lib test/unit test/unit/helpers].join(File::PATH_SEPARATOR)
+  at.add_exception 'integration'
 end
