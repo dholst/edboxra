@@ -17,6 +17,14 @@ module Edboxra
       end
 
       def add_metadata_to(movie)
+        postData = JSON.generate({
+          :productType => 1,
+          :id => movie.id,
+          :descCharLimit => 2000
+        })
+
+        response = RestClient.post("http://www.redbox.com/api/Product/GetDetail/", postData, post_headers)
+        map_metadata(movie, JSON.parse(response.body))
       end
 
       private
@@ -30,6 +38,23 @@ module Edboxra
         movie.genre_ids = json["genreIDs"]
         movie.blu_ray = json["fmt"].eql? "2"
         movie
+      end
+
+      def map_metadata(movie, json)
+        if(json["d"] && json["d"]["success"] && json["d"]["data"])
+          data = json["d"]["data"]
+          movie.description = data["desc"]
+          movie.rating = data["rating"]
+          movie.running_time = data["len"]
+          movie.genre = (data["genre"] || []).join(", ")
+          movie.actors = (data["starring"] || []).join(", ")
+        else
+          raise "no metadata - " + resp
+        end
+      end
+
+      def post_headers
+        {'Cookie' => @cookies.map{|k,v| "#{k}=#{v}"}.join("; "), "__K" => @key}
       end
     end
   end
