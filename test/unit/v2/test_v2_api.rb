@@ -6,7 +6,7 @@ describe Edboxra::V2::Api do
   before do
     FakeBox.fakeout_version_2
     FakeBox.expect_get("http://www.redbox.com/api/product/js/__titles", MOVIES_JS)
-    @api = Edboxra::ApiFactory.create_api
+    @api = Edboxra::ApiFactory.new(LogStub.new).create_api
   end
 
   it "should get a list of movies" do

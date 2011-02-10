@@ -6,7 +6,7 @@ class TestV1Api < TestCase
   def setup
     FakeBox.fakeout_version_1
     FakeBox.expect_get("http://www.redbox.com/data.svc/Title/js", MOVIES_JS)
-    @api = Edboxra::ApiFactory.create_api
+    @api = Edboxra::ApiFactory.new(LogStub.new).create_api
   end
 
   def test_get_movies
