@@ -19,4 +19,14 @@ class TestApiFactory < TestCase
     assert_instance_of(Edboxra::V2::Api, @factory.create_api)
     @log.verify
   end
+
+  def bench_some_stuff_for_demonstration_purposes
+    assert_performance_linear 0.9999 do |n| # n is a range value
+      s = ""
+
+      n.times do
+        s << "x"
+      end
+    end
+  end
 end

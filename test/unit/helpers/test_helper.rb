@@ -1,5 +1,5 @@
+require 'minitest/benchmark' if ENV['BENCH']
 require 'minitest/autorun'
-#require 'minitest/pride'
 require 'edboxra'
 require 'fake_box'
 require 'log_stub'
