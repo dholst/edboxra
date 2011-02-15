@@ -8,13 +8,18 @@ PATH
 GEM
   remote: http://rubygems.org/
   specs:
+    ZenTest (4.4.2)
     addressable (2.2.4)
+    autotest-fsevent (0.2.4)
+      sys-uname
+    autotest-growl (0.2.9)
     crack (0.1.8)
     json (1.5.1)
     mime-types (1.16)
     minitest (2.0.2)
     rest-client (1.6.1)
       mime-types (>= 1.16)
+    sys-uname (0.8.5)
     webmock (1.6.2)
       addressable (>= 2.2.2)
       crack (>= 0.1.7)
@@ -23,6 +28,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  ZenTest (~> 4.4)
+  autotest-fsevent (~> 0.2)
+  autotest-growl (~> 0.2)
   edboxra!
   minitest (~> 2.0)
   webmock (~> 1.6)

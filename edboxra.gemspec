@@ -23,5 +23,8 @@ Gem::Specification.new do |s|
   s.add_dependency "json", "~> 1.5"
   s.add_development_dependency "webmock", "~> 1.6"
   s.add_development_dependency "minitest", "~> 2.0"
+  s.add_development_dependency "ZenTest", "~> 4.4"
+  s.add_development_dependency "autotest-growl", "~> 0.2"
+  s.add_development_dependency "autotest-fsevent", "~> 0.2"
 end
 
