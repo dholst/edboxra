@@ -1,6 +1,7 @@
 require 'bundler'
 require 'rake/testtask'
 
+Bundler.require(:default)
 Bundler::GemHelper.install_tasks
 
 Rake::TestTask.new do |task|
