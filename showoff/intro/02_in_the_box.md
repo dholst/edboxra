@@ -1,4 +1,4 @@
-!SLIDE bullets incremental
+!SLIDE bullets incremental transition=turnDown
 
 # What's in the box? #
 

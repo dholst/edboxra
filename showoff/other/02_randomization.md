@@ -1,10 +1,10 @@
-!SLIDE center
+!SLIDE center transition=turnDown
 
 # Randomization #
 
 ![FIRST](FIRST.jpg)
 
-!SLIDE commandline
+!SLIDE commandline transition=turnDown
 
 # Randomization #
 
@@ -21,7 +21,7 @@
 	
 	1 tests, 1 assertions, 0 failures, 0 errors, 0 skips
 
-!SLIDE commandline
+!SLIDE commandline transition=turnDown
 
 # Randomization #
 

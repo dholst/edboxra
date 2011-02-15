@@ -1,4 +1,4 @@
-!SLIDE small bullets
+!SLIDE small bullets transition=turnDown
 
 # Benchmarking #
 

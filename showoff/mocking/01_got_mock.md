@@ -1,3 +1,3 @@
-!SLIDE
+!SLIDE transition=turnDown
 
 #Got Mock?#

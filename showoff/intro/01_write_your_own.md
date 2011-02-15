@@ -1,4 +1,4 @@
-!SLIDE bullets incremental
+!SLIDE bullets incremental transition=turnDown
 
 # What do all programmers do when they don't like something? #
 

@@ -1,4 +1,4 @@
-!SLIDE small
+!SLIDE small transition=turnDown
 
 # Mocking #
 
